@@ -33,10 +33,49 @@
 ===================== */
 
 // We set this to HTTP to prevent 'CORS' issues
-var downloadData = $.ajax("http://");
-var parseData = function() {};
-var makeMarkers = function() {};
-var plotMarkers = function() {};
+// var downloadData = $.ajax("http://raw.githubusercontent.com/CPLN692-MUSA611/datasets/master/json/philadelphia-bike-crashes-snippet.json");
+// var parseData = function(bikedata)
+// {
+//   return JSON.parse(bikedata);
+// };
+// // making markers
+// var makeMarkers = function(mark)
+// //coordinates
+// {
+//   return _.map(mark, function(coord.LAT, coord.LONG];});};
+//     {
+//      return L.marker([bikedata.Lat, bikedata.Lng]);
+//     };
+// _.each(bikedata,latLong);
+// };
+// //plotting markers
+// var plotMarkers = function(latLong)
+// {
+//   latLong.addTo(map);
+// };
+
+var downloadData = $.ajax("https://raw.githubusercontent.com/CPLN692-MUSA611/datasets/master/json/philadelphia-solar-installations.json");
+var parseData = function(bikeData)
+{
+  // console.log(JSON.parse(bikeData));
+  return JSON.parse(bikeData);
+};
+var makeMarkers = function(marker)
+{
+  return _.map (marker, function(coordinate)
+    {
+      // console.log(L.marker([coordinate.LAT, coordinate.LONG_]));
+      return L.marker([coordinate.LAT, coordinate.LONG_]);
+    });
+};
+var plotMarkers = function(plot)
+{
+  _.map(plot, function(markers)
+    {
+      return markers.addTo(map);
+    });
+};
+
 
 
 /* =====================
@@ -52,7 +91,16 @@ var plotMarkers = function() {};
   user's input.
 ===================== */
 
-var removeMarkers = function() {};
+var removeMarkers = function(markers)
+{
+    _.map(markers,function(marker)
+    {
+      console.log(marker);
+      map.removeLayer(marker);
+    });
+};
+
+
 
 /* =====================
   Optional, stretch goal
@@ -70,6 +118,7 @@ var map = L.map('map', {
   center: [39.9522, -75.1639],
   zoom: 14
 });
+console.log (map);
 var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   subdomains: 'abcd',
@@ -85,6 +134,7 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 downloadData.done(function(data) {
   var parsed = parseData(data);
   var markers = makeMarkers(parsed);
+  console.log(markers);
   plotMarkers(markers);
   removeMarkers(markers);
 });

@@ -6,6 +6,7 @@ body {
     padding: 0;
     overflow: hidden;
     font-family: helvetica, arial, sans-serif;
+    background-color: #F0FFFF;
 }
 
 .map {
@@ -24,4 +25,103 @@ body {
     bottom: 0;
     overflow-y: auto;
     padding: 20px;
+}
+
+.red-text {
+    color: red;
+}
+
+.blue-text {
+    color:blue;
+}
+.gray-text {
+  color:gray;
+}
+.black-text {
+  color:black;
+}
+
+h1 {
+  padding-top: 10px;
+  font-size: 40px;
+  font-family: Monospace;
+}
+
+h3 {
+  font-size: 16px;
+  font-family: Monospace;
+  width: 150px;
+  height: 30px;
+  margin: 10px 20px 30px 40px;
+  position: absolute;
+  left: 145px;
+  top: 62px;
+}
+
+p {
+  font-size: 32px;
+  font-family: Monospace;
+  font-weight: bold;
+}
+
+p.new {
+  font-size: 16px;
+  font-family: Monospace;
+  font-weight: bold;
+}
+p.new2 {
+  font-size: 16px;
+  font-family: Monospace;
+  font-weight: bold;
+}
+p.new3 {
+  font-size: 16px;
+  font-family: Monospace;
+  font-weight: bold;
+}
+h2 {
+  font-size: 30px;
+  font-family: Monospace;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 16px;
+  font-family: Monospace;
+  font-weight: bold;
+  background-color: 	#DCDCDC;
+}
+
+h5 {
+  font-size: 16px;
+  font-family: Monospace;
+  font-weight: bold;
+  background-color: 	#DCDCDC;
+}
+
+h6 {
+  font-size: 16px;
+  font-family: Monospace;
+  font-weight: bold;
+  background-color: 	#DCDCDC;
+}
+/*h7 {
+  font-size: 16px;
+  font-family: Monospace;
+  font-weight: bold;
+  background-color: 	#DCDCDC;
+}*/
+
+
+.thick-green-border {
+  border-color: green;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 50%;
+  margin: 10px 20px 30px 40px;
+  top: 400px;
+}
+
+.smaller-image {
+  width: 100px;
 }
